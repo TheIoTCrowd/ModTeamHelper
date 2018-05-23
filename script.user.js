@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Loads which sites a user moderates from their Teams profile
-// @author       You
+// @author       Aurora0001
 // @match        https://stackoverflow.com/c/moderators/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
