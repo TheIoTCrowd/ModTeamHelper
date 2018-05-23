@@ -20,4 +20,6 @@ Please file an issue; this is a bug. Apologies for the inconvenience.
 
 ### A scary message pops up telling me that you're about to steal all my information ("A userscript wants to access a cross-origin resource.")
 
-Don't worry - the script just needs to request that user's network profile from stackexchange.com. As this is considered a different origin than stackoverflow.com, Tampermonkey just wants to check with you that nothing bad is happening. It's not, don't worry!
+Don't worry - the script just needs to request that user's network profile from stackexchange.com. As this is considered a different origin than stackoverflow.com, Tampermonkey just wants to check with you that nothing bad is happening.  Click "Always allow domain" and you won't be bothered again. 
+
+The script won't work if you deny this.
