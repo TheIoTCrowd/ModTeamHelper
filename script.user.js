@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         "Stack Moderators" Team Helper
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Loads which sites a user moderates from their Teams profile
 // @author       Aurora0001
 // @match        https://stackoverflow.com/c/moderators/*
@@ -47,9 +47,13 @@
                 onload: function(response) {
                     var networkBody = $.parseHTML(response.responseText);
                     var username = $(networkBody).find(".user-details h1").text();
-                    var modSites = $(networkBody).find('[title="moderator"]').closest(".account-container").find(".account-icon").parent();
-                    $(modSites).find(".account-icon").changeElementType("span");
-                    $(usercard).append(modSites);
+                    var modSites = $(networkBody).find('[title="moderator"]');
+                    var siteIcons = modSites.closest(".account-container").find(".account-icon").parent();
+                    var modSiteNames = modSites.parent().get();
+                    $(siteIcons).find(".account-icon").each(function(i) {
+                        $(this).attr("title", modSiteNames[i].innerText.replace("♦", "").trim());
+                    }).changeElementType("span");
+                    $(usercard).append(siteIcons);
                     $(usercard).find("a:nth-child(1)").text(username);
                 }
             });
